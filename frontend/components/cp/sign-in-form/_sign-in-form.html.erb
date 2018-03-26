@@ -1,0 +1,23 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {id: 'sign_in', 'data-type': 'json'}, remote: true) do |f| %>
+  <div class="form-group">
+    <%= f.label :email %>
+    <%= f.email_field :email, value: 'demo@test.ru', class: 'form-control', autofocus: true %>
+  </div>
+  
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, value: 'test1234', class: 'form-control', autocomplete: "off" %>
+  </div>
+  
+  <% if devise_mapping.rememberable? -%>
+    <div class="form-group">
+      <div class="custom-control custom-checkbox">
+        <%= f.check_box :remember_me, class: 'custom-control-input' %>
+        <%= f.label :remember_me, class: 'custom-control-label' %>
+      </div>
+    </div>
+  <% end -%>
+  
+  <%= f.submit "Sign in", class: 'btn btn-primary' %>
+  <%= link_to "Forgot your password?", new_admin_password_path, class: 'btn btn-link' %>
+<% end %>

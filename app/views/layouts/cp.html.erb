@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ModernFrontendRails - Control panel</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_pack_tag 'cp' %>
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <% if admin_signed_in? %>
+        <%= c("navbar", "cp") %>
+        <div class="row">
+          <%= c("sidebar", "cp") %>
+          <main class="col-sm-9 ml-sm-auto col-md-10 pt-3">
+            <%= c("flash-messages", "", flash: flash) %>
+            <%= yield %>
+          </main>
+        </div>
+      <% else %>
+        <%= c("flash-messages", "", flash: flash) %>
+        <%= yield %>
+      <% end %>
+    </div>
+    <%= javascript_pack_tag 'cp' %>
+  </body>
+</html>

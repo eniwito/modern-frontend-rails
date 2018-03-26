@@ -1,0 +1,14 @@
+h1 {
+  border-bottom: 1px solid #eee;
+  margin-bottom: 20px;
+  padding-bottom: 9px;
+}
+
+button:hover,
+.btn:hover {
+  cursor: pointer;
+}
+
+main {
+  margin-top: 3.5rem;
+}
